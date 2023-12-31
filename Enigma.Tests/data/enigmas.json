@@ -1,0 +1,139 @@
+{
+  "enigmaMachines": 
+      [
+        {
+          "model": "Commercial Enigma A, B",
+          "introductionDate": "1924",
+          "rotors": [
+            {
+              "label": "IC",
+              "wiring": "DMTWSILRUYQNKFEJCAZBPGXOHV"
+            },
+            {
+              "label": "IIC",
+              "wiring": "HQZGPJTMOBLNCIFDYAWVEUSRKX"
+            },
+            {
+              "label": "IIIC",
+              "wiring": "UQNTLSZFMREHDPXKIBVYGJCWOA"
+            }
+          ]
+        },
+        {
+          "model": "German Railway (Rocket)",
+          "introductionDate": "7 February 1941",
+          "rotors": [
+            {
+              "label": "I",
+              "wiring": "JGDQOXUSCAMIFRVTPNEWKBLZYH"
+              },
+              {
+              "label": "II",
+              "wiring": "NTZPSFBOKMWRCJDIVLAEYUXHGQ"
+              },
+              {
+              "label": "III",
+              "wiring": "JVIUBHTCDYAKEQZPOSGXNRMWFL"
+              },
+              {
+                "label": "UKW",
+                "wiring": "QYHOGNECVPUZTFDJAXWMKISRBL"
+              },
+              {
+                "label": "ETW",
+                "wiring": "QWERTZUIOASDFGHJKPYXCVBNML"
+              }
+          ]
+        },
+        {
+          "model": "Swiss K",
+          "introductionDate": "February 1939",
+          "rotors": [
+            {
+              "label": "I-K",
+              "wiring": "QWERTZUIOASDFGHJKPYXCVBNML"
+            },
+            {
+              "label": "II-K",
+              "wiring": "PEZUOHXSCVFMTBGLRINQJWAYDK"
+            },
+            {
+              "label": "III-K",
+              "wiring": "EHRVXGAOBQUSIMZFLYNWKTPDJC"
+            },
+            {
+              "label": "UKW-K",
+              "wiring": "IMETCGFRAYSQBZXWLHKDVUPOJN"
+            },
+            {
+              "label": "ETW-K",
+              "wiring": "QWERTZUIOASDFGHJKPYXCVBNML"
+            }
+          ]
+        },
+        {
+          "model": "Enigma I",
+          "introductionDate": "1930",
+          "rotors": [
+            {
+              "label": "I",
+              "wiring": "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
+            },
+            {
+              "label": "II",
+              "wiring": "AJDKSIRUXBLHWTMCQGZNPYFVOE"
+            },
+            {
+              "label": "III",
+              "wiring": "BDFHJLCPRTXVZNYEIWGAKMUSQO"
+            }
+          ]
+        },
+        {
+          "model": "M3 Army",
+          "introductionDate": "December 1938",
+          "rotors": [
+            {
+              "label": "IV",
+              "wiring": "ESOVPZJAYQUIRHXLNFTGKDCMWB"
+            },
+            {
+              "label": "V",
+              "wiring": "VZBRGITYUPSDNHLXAWMJQOFECK"
+            }
+          ]
+        },
+        {
+          "model": "M3 & M4 Naval (FEB 1942)",
+          "introductionDate": "1939",
+          "rotors": [
+            {
+              "label": "VI",
+              "wiring": "JPGVOUMFYQBENHZRDKASXLICTW"
+            },
+            {
+              "label": "VII",
+              "wiring": "NZJHGRCXMYSWBOUFAIVLPEKQDT"
+            },
+            {
+              "label": "VIII",
+              "wiring": "FKQHTLXOCBJSPDZRAMEWNIUYGV"
+            }
+          ]
+        }
+      ],
+  "reflectors": [
+    {
+      "name": "Reflector A",
+      "wiring": "EJMZALYXVBWFCRQUONTSPIKHGD"
+    },
+    {
+      "name": "Reflector B",
+      "wiring": "YRUHQSLDPXNGOKMIEBFZCWVJAT"
+    },
+    {
+      "name": "Reflector C",
+      "wiring": "FVPJIAOYEDRZXWGCTKUQSBNMHL"
+    }
+  ]
+}
