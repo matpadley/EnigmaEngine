@@ -1,3 +1,4 @@
+using Enigma.Configuration;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 

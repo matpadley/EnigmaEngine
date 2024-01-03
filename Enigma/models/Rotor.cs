@@ -1,3 +1,5 @@
+namespace Enigma.models;
+
 public class Rotor
 {
     public string Label { get; set; }

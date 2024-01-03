@@ -1,3 +1,5 @@
+namespace Enigma.models;
+
 public class EnigmaData
 {
     public List<EnigmaModel> EnigmaMachines { get; set; }

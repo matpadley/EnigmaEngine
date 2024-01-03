@@ -1,5 +1,8 @@
-using Newtonsoft.Json;
+using Enigma.models;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+
+namespace Enigma.Configuration;
 
 public class EnigmaJsonDeserializer
 {

@@ -1,4 +1,4 @@
-namespace enigma.tests;
+namespace Enigma.Tests;
 
 public class Rotor
 {

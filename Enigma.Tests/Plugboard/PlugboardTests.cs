@@ -1,3 +1,5 @@
+using Enigma.PlugBoard;
+
 namespace Enigma.Tests.Plugboard;
 
 [TestFixture]
@@ -6,8 +8,9 @@ public class PlugBoardTests
     [Test]
     public void Get_ReturnsCorrectMappedLetter()
     {
-        var plugBoardPairs = new PlugBoardPair[] { new PlugBoardPair('A', 'B') };
-        var plugBoard = new PlugBoard(plugBoardPairs);
+        var plugBoardPairs = new[] { new PlugBoardPair('A', 'B') };
+        var plugboardPairs = new PlugBoardPairs { Pairs = plugBoardPairs };
+        var plugBoard = new PlugBoardSettings(plugboardPairs);
 
         var result = plugBoard.Get('A');
 
@@ -17,8 +20,10 @@ public class PlugBoardTests
     [Test]
     public void Get_ReturnsInputLetterWhenNoMapping()
     {
-        var plugBoardPairs = new PlugBoardPair[] { new PlugBoardPair('A', 'B') };
-        var plugBoard = new PlugBoard(plugBoardPairs);
+        var plugBoardPairs = new[] { new PlugBoardPair('A', 'B') };
+        
+        var plugboardPairs = new PlugBoardPairs { Pairs = plugBoardPairs };
+        var plugBoard = new PlugBoardSettings(plugboardPairs);
 
         var result = plugBoard.Get('C');
 

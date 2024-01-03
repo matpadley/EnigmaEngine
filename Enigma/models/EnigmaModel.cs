@@ -1,3 +1,5 @@
+namespace Enigma.models;
+
 public class EnigmaModel
 {
     public string Model { get; set; }
