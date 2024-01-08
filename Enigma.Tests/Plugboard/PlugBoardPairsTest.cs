@@ -1,7 +1,7 @@
 using Enigma.Exceptions;
 using Enigma.PlugBoard;
 
-namespace Enigma.Tests.Plugboard;
+namespace enigma.tests.Plugboard;
 
 [TestFixture]
 public class PlugBoardPairsTests

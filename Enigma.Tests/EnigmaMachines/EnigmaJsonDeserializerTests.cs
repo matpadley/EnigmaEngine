@@ -2,7 +2,7 @@ using Enigma.Configuration;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 
-namespace Enigma.Tests.EnigmaMachines;
+namespace enigma.tests.EnigmaMachines;
 
 [TestFixture]
 public class EnigmaJsonDeserializerTests
@@ -29,7 +29,7 @@ public class EnigmaJsonDeserializerTests
         var data = _deserializer.DeserializeEnigmaData().Reflectors;
 
         // Assert
-        data.Count.Should().Be(3);
+        data?.Count.Should().Be(3);
     }
 
     [Test]
@@ -39,6 +39,6 @@ public class EnigmaJsonDeserializerTests
         var data = _deserializer.DeserializeEnigmaData().EnigmaMachines;
 
         // Assert
-        data.Count.Should().Be(6);
+        data?.Count.Should().Be(6);
     }
 }

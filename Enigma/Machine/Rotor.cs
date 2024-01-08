@@ -1,6 +1,6 @@
 using Enigma.Data;
 
-namespace Enigma.Rotor;
+namespace Enigma.Machine;
 
 public class Rotor
 {
@@ -23,5 +23,5 @@ public class Rotor
 
     private char[] Positions { get; set; }
 
-    public string Label { get; private set; }
+    public string? Label { get; private set; }
 }
