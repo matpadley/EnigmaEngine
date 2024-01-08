@@ -5,16 +5,19 @@ namespace Enigma.Tests.Plugboard;
 [TestFixture]
 public class PlugBoardTests
 {
-    [Test]
-    public void Get_ReturnsCorrectMappedLetter()
+    [TestCase('A', PlugBoardDirection.ToReflector, 'B')]
+    [TestCase('C', PlugBoardDirection.ToReflector, 'C')]
+    [TestCase('C', PlugBoardDirection.FromReflector, 'C')]
+    [TestCase('B', PlugBoardDirection.FromReflector, 'A')]
+    public void Get_ReturnsCorrectMappedLetter(char input, PlugBoardDirection direction, char expected)
     {
         var plugBoardPairs = new[] { new PlugBoardPair('A', 'B') };
         var plugboardPairs = new PlugBoardPairs { Pairs = plugBoardPairs };
         var plugBoard = new PlugBoardSettings(plugboardPairs);
 
-        var result = plugBoard.Get('A');
+        var result = plugBoard.Get(input, direction);
 
-        Assert.That(result, Is.EqualTo('B'));
+        Assert.That(result, Is.EqualTo(expected));
     }
 
     [Test]
@@ -25,7 +28,7 @@ public class PlugBoardTests
         var plugboardPairs = new PlugBoardPairs { Pairs = plugBoardPairs };
         var plugBoard = new PlugBoardSettings(plugboardPairs);
 
-        var result = plugBoard.Get('C');
+        var result = plugBoard.Get('C', PlugBoardDirection.ToReflector);
 
         Assert.That(result, Is.EqualTo('C'));
     }

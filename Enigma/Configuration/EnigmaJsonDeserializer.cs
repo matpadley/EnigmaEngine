@@ -1,34 +1,21 @@
-using Enigma.models;
+using Enigma.Machine;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace Enigma.Configuration;
 
-public class EnigmaJsonDeserializer
+public class EnigmaJsonDeserializer(IConfiguration configuration)
 {
-    private IConfiguration _Configuration { get; }
-
-    public EnigmaJsonDeserializer(IConfiguration configuration)
-    {
-        _Configuration = configuration;
-    }
+    private IConfiguration _Configuration { get; } = configuration;
 
     public EnigmaData DeserializeEnigmaData()
     {
-        var filePath = GetFilePath("enigma");
-        var jsonData = File.ReadAllText(filePath);
-        return JsonConvert.DeserializeObject<EnigmaData>(jsonData);
-    }
-
-    private string GetFilePath(string name)
-    {
-        //return "test";
-        return _Configuration.GetSection("fileLocations")
+        var filePath = _Configuration.GetSection("fileLocations")
             .GetChildren()
-            .FirstOrDefault(x => x.Key == name).Value;
-
-        return string.Empty;
-        // .GetChildren()
-        //        .FirstOrDefault(x => x.Key ==  name).Value;
+            .FirstOrDefault(x => x.Key == "Enigma").Value;
+        
+        var jsonData = File.ReadAllText(filePath);
+        
+        return JsonConvert.DeserializeObject<EnigmaData>(jsonData);
     }
 }
