@@ -17,10 +17,10 @@ jobs:
         dotnet-version: 8.0.100
 
     - name: Install dependencies
-      run: dotnet restore Enigma.sln
+      run: dotnet restore
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore Enigma.sln
+      run: dotnet build --configuration Release --no-restore 
 
     - name: Test
-      run: dotnet test --no-restore --verbosity normal Enigma.sln
+      run: dotnet test --no-restore --verbosity normal 
