@@ -14,10 +14,9 @@ public class PlugBoardPairsTests
         var pair = new PlugBoardPair('A', 'B');
 
         // Act
-        var result = plugBoardPairs.AddPlugBoardPair(pair);
+        plugBoardPairs.AddPlugBoardPair(pair);
 
         // Assert
-        Assert.IsTrue(result);
         Assert.Contains(pair, plugBoardPairs.Pairs);
     }
 

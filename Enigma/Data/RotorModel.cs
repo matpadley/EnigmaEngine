@@ -1,6 +1,6 @@
-namespace Enigma.Rotor;
+namespace Enigma.Data;
 
-public class Model
+public class RotorModel
 {
     public string Label { get; set; }
     public string Wiring { get; set; }

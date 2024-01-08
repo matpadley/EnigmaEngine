@@ -1,3 +1,4 @@
+using Enigma.Data;
 using Enigma.Machine;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -8,14 +9,14 @@ public class EnigmaJsonDeserializer(IConfiguration configuration)
 {
     private IConfiguration _Configuration { get; } = configuration;
 
-    public EnigmaData DeserializeEnigmaData()
+    public EnigmaDataModel DeserializeEnigmaData()
     {
         var filePath = _Configuration.GetSection("fileLocations")
             .GetChildren()
-            .FirstOrDefault(x => x.Key == "Enigma").Value;
+            .FirstOrDefault(x => x.Key == "enigma");
         
-        var jsonData = File.ReadAllText(filePath);
+        var jsonData = File.ReadAllText(filePath.Value);
         
-        return JsonConvert.DeserializeObject<EnigmaData>(jsonData);
+        return JsonConvert.DeserializeObject<EnigmaDataModel>(jsonData);
     }
 }
