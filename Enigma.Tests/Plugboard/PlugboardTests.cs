@@ -11,9 +11,9 @@ public class PlugBoardTests
     [TestCase('B', PlugBoardDirection.FromReflector, 'A')]
     public void Get_ReturnsCorrectMappedLetter(char input, PlugBoardDirection direction, char expected)
     {
-        var plugBoardPairs = new[] { new PlugBoardPair('A', 'B') };
-        var plugboardPairs = new PlugBoardPairs { Pairs = plugBoardPairs };
-        var plugBoard = new PlugBoardSettings(plugboardPairs);
+        var plugBoardPairs = new[] { new Pair('A', 'B') };
+        var plugboardPairs = new Pairs { PlugBoardPairs = plugBoardPairs };
+        var plugBoard = new Settings(plugboardPairs);
 
         var result = plugBoard.Get(input, direction);
 
@@ -23,10 +23,10 @@ public class PlugBoardTests
     [Test]
     public void Get_ReturnsInputLetterWhenNoMapping()
     {
-        var plugBoardPairs = new[] { new PlugBoardPair('A', 'B') };
+        var plugBoardPairs = new[] { new Pair('A', 'B') };
         
-        var plugboardPairs = new PlugBoardPairs { Pairs = plugBoardPairs };
-        var plugBoard = new PlugBoardSettings(plugboardPairs);
+        var plugboardPairs = new Pairs { PlugBoardPairs = plugBoardPairs };
+        var plugBoard = new Settings(plugboardPairs);
 
         var result = plugBoard.Get('C', PlugBoardDirection.ToReflector);
 
@@ -36,7 +36,7 @@ public class PlugBoardTests
     [Test]
     public void PlugBoardPair_ConstructorSetsPropertiesCorrectly()
     {
-        var plugBoardPair = new PlugBoardPair('A', 'B');
+        var plugBoardPair = new Pair('A', 'B');
 
         Assert.That(plugBoardPair.First, Is.EqualTo('A'));
         Assert.That(plugBoardPair.Second, Is.EqualTo('B'));

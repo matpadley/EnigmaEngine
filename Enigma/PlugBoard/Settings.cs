@@ -1,12 +1,12 @@
 namespace Enigma.PlugBoard;
 
-public class PlugBoardSettings(PlugBoardPairs plugBoardPairs)
+public class Settings(Pairs pairs)
 {
     public char Get(char letter, PlugBoardDirection direction)
     {
         if (direction == PlugBoardDirection.ToReflector)
         {
-            var letterToReturn = plugBoardPairs.Pairs.ToArray().FirstOrDefault(f => f.First == letter);
+            var letterToReturn = pairs.PlugBoardPairs.ToArray().FirstOrDefault(f => f.First == letter);
             
             if (letterToReturn != null)
             {
@@ -15,7 +15,7 @@ public class PlugBoardSettings(PlugBoardPairs plugBoardPairs)
         }
         else
         {
-            var letterToReturn = plugBoardPairs.Pairs.ToArray().FirstOrDefault(f => f.Second == letter);
+            var letterToReturn = pairs.PlugBoardPairs.ToArray().FirstOrDefault(f => f.Second == letter);
             
             if (letterToReturn != null)
             {
