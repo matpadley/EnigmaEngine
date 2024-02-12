@@ -4,18 +4,26 @@ namespace Enigma.Machine;
 
 public class Rotor
 {
-    public Rotor(RotorModel rotorModelRotorModel, int startPosition)
+    public Rotor(RotorModel rotorModel, int startPosition, char[] inputModel = null)
     {
-        Label = rotorModelRotorModel.Label;
-        Positions = rotorModelRotorModel.Wiring?.ToCharArray() ?? Array.Empty<char>();        
+        Label = rotorModel.Label;
+        Positions = rotorModel.Wiring?.ToCharArray() ?? Array.Empty<char>();    
+        _inputModel = inputModel ?? "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
         CurrentPosition = Positions[startPosition];
     }
 
-    public char AdvancePosition()
+    public char AdvancePosition(char input)
     {
-        var currentIndex = Array.IndexOf(Positions, CurrentPosition);
-        var nextIndex = (currentIndex + 1) % Positions.Length;
-        CurrentPosition = Positions[nextIndex];
+        var www = _inputModel.IndexOf(input);
+        if (_inputModel.IndexOf(input) == _inputModel.Count - 1)
+        {
+            CurrentPosition = Positions[0];
+        }
+        else
+        {
+            CurrentPosition = Positions[_inputModel.IndexOf(input) + 1];
+        }
+        
         return CurrentPosition;
     }
 
@@ -24,4 +32,8 @@ public class Rotor
     private char[] Positions { get; set; }
 
     public string? Label { get; private set; }
+    
+    public int CurrentIndex => Array.IndexOf(Positions, CurrentPosition);
+
+    private readonly IList<char> _inputModel;
 }
