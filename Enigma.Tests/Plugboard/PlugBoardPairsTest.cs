@@ -1,5 +1,6 @@
 using Enigma.Exceptions;
 using Enigma.PlugBoard;
+using FluentAssertions;
 
 namespace enigma.tests.Plugboard;
 
@@ -17,7 +18,7 @@ public class PlugBoardPairsTests
         pairs.AddPlugBoardPair(pair);
 
         // Assert
-        Assert.Contains(pair, pairs.PlugBoardPairs);
+        Assert.That(pairs.PlugBoardPairs.Contains(pair));
     }
 
     [Test]
@@ -41,6 +42,6 @@ public class PlugBoardPairsTests
         var plugBoardPairs = new Pairs();
 
         // Assert
-        Assert.IsNotNull(plugBoardPairs.PlugBoardPairs);
+        Assert.That(plugBoardPairs.PlugBoardPairs == null);
     }
 }
