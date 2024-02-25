@@ -15,10 +15,10 @@ public class RotorSet
         
         foreach (var rotor in Rotors)
         {
-            outputChar = rotor.NextPosition(outputChar);
+            var isFirstRotor = rotor == Rotors[0];
+            outputChar = rotor.NextPosition(outputChar, isFirstRotor);
         }
         
         return outputChar;
-        
     }
 }

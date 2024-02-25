@@ -52,7 +52,7 @@ public class SingleRotorTests: BaseRotorLayer
         // Act
         foreach (var inputChar in inputChars)
         {
-            var encryptdChar = rotor.NextPosition(inputChar);
+            var encryptdChar = rotor.NextPosition(inputChar, true);
             outputChars.Add(encryptdChar);
         }
         

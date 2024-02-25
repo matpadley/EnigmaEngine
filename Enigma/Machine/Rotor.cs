@@ -41,7 +41,10 @@ public class Rotor
 
         var encryptedChar = _rotorWiring![index];
 
-        _rotorWiring = ShiftLeft(_rotorWiring, 1, shouldRotate);
+        if (shouldRotate)
+        {
+            _rotorWiring = ShiftLeft(_rotorWiring, 1, shouldRotate);
+        }
 
         return encryptedChar;
     }
