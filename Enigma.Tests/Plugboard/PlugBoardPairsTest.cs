@@ -42,6 +42,6 @@ public class PlugBoardPairsTests
         var plugBoardPairs = new Pairs();
 
         // Assert
-        Assert.That(plugBoardPairs.PlugBoardPairs == null);
+        Assert.That(plugBoardPairs.PlugBoardPairs != null);
     }
 }
