@@ -69,8 +69,8 @@ public class MultipleRotor: BaseRotorLayer
         result.Should().Be(expectedLetter);
     }
     
-    [TestCase(0, 0, "HA", "ZJ")]
-    [TestCase(0, 0, "HACK", "ZJGZ")]
+    [TestCase(0, 0, "HA", "JP")]
+    [TestCase(0, 0, "HACK", "JPQJ")]
     //[TestCase(1, 1, "HELLO", "QHNNO")]
     //[TestCase(26, 1, "HELLO", "QHNNO")]
     //[TestCase(26, 1, "ABCDEFGHUJKLMNOPQRSTUVWQYZ", "SLWIHRKQAETNMFOUVPZCAXJVDB")]
@@ -79,6 +79,16 @@ public class MultipleRotor: BaseRotorLayer
         string inputWord, 
         string expectedWord)
     {
+        
+        // H->Z, Z->J
+        
+        // A->J, J->P
+        
+        // C->G, G->Q
+        
+        // K->Z, Z->J
+        
+        
         // Arrange
         var rotorModelFirst = JsonConvert.DeserializeObject<RotorModel>(FirstRotorJson);
         var rotorModelSecond = JsonConvert.DeserializeObject<RotorModel>(SecondRotorJson);

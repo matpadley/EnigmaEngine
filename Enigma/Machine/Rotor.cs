@@ -29,8 +29,6 @@ public class Rotor
             var newIndex = (i + shift) % _alphabet.Length;
             shiftedAlphabet[newIndex] = rotorWiring[i];
         }
-
-        _rotationCount++;
         
         return shiftedAlphabet;
     }
@@ -45,6 +43,8 @@ public class Rotor
         {
             _rotorWiring = ShiftLeft(_rotorWiring, 1, shouldRotate);
         }
+
+        _rotationCount++;
 
         return encryptedChar;
     }
