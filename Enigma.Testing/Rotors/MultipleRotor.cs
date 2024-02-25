@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Enigma.Data;
 using Enigma.Machine;
 using FluentAssertions;
@@ -14,10 +15,12 @@ public class MultipleRotor: BaseRotorLayer
     }
     
     [TestCase(0, 'A', 'G')]
+    [TestCase(0, 'H', 'Z')]
     [TestCase(0, 'Z', 'J')]
     [TestCase(0, 'B', 'E')]
     [TestCase(0, 'Y', 'V')]
     [TestCase(1, 'A', 'J')]
+    [TestCase(1, 'Z', 'V')]
     public void SingleRotor_ReturnsExpectedPosition(int startPosition, 
         char inputLetter, 
         char expectedLetter)
@@ -37,6 +40,9 @@ public class MultipleRotor: BaseRotorLayer
     
     
     [TestCase(0, 0,'H', 'J')]
+    [TestCase(0, 0,'A', 'Q')]
+    [TestCase(0, 0,'C', 'W')]
+    [TestCase(0, 0,'K', 'E')]
     //[TestCase(0,0, 'Z', 'P')]
     //[TestCase(1,0, 'Z', 'P')]
     //[TestCase(0,0, 'B', 'E')]
@@ -47,6 +53,7 @@ public class MultipleRotor: BaseRotorLayer
         char inputLetter, 
         char expectedLetter)
     {
+       // "J => P ---> P => M";
         // Arrange
         var rotorModelFirst = JsonConvert.DeserializeObject<RotorModel>(FirstRotorJson);
         var rotorModelSecond = JsonConvert.DeserializeObject<RotorModel>(SecondRotorJson);
@@ -59,21 +66,22 @@ public class MultipleRotor: BaseRotorLayer
         var result = rotorSet.Process(inputLetter);
         
         // Assert
-        expectedLetter.Should().Be(result);
+        result.Should().Be(expectedLetter);
     }
-    /*
-    [TestCase(0, 0, "HELLO", "DLZWP")]
-    [TestCase(1, 1, "HELLO", "QHNNO")]
-    [TestCase(26, 1, "HELLO", "QHNNO")]
-    [TestCase(26, 1, "ABCDEFGHUJKLMNOPQRSTUVWQYZ", "SLWIHRKQAETNMFOUVPZCAXJVDB")]
+    
+    [TestCase(0, 0, "HA", "JQ")]
+    [TestCase(0, 0, "HACK", "JLZWP")]
+    //[TestCase(1, 1, "HELLO", "QHNNO")]
+    //[TestCase(26, 1, "HELLO", "QHNNO")]
+    //[TestCase(26, 1, "ABCDEFGHUJKLMNOPQRSTUVWQYZ", "SLWIHRKQAETNMFOUVPZCAXJVDB")]
     public void AdvancePosition_ReturnsExpectedWord(int firstRotorStartPosition,
         int secondRotorStartPosition, 
         string inputWord, 
         string expectedWord)
     {
         // Arrange
-        var rotorModelFirst = JsonConvert.DeserializeObject<RotorModel>(_rotorJson_one);
-        var rotorModelSecond = JsonConvert.DeserializeObject<RotorModel>(_rotorJson_two);
+        var rotorModelFirst = JsonConvert.DeserializeObject<RotorModel>(FirstRotorJson);
+        var rotorModelSecond = JsonConvert.DeserializeObject<RotorModel>(SecondRotorJson);
         var rotorFirst = new Rotor(rotorModelFirst, firstRotorStartPosition);
         var rotorSecond = new Rotor(rotorModelSecond, secondRotorStartPosition);
         var inputChars = inputWord.ToCharArray();
@@ -90,5 +98,5 @@ public class MultipleRotor: BaseRotorLayer
         var encryptedWork = new string(outputChars.ToArray());
         
         encryptedWork.Should().Be(expectedWord);
-    }*/
+    }
 }

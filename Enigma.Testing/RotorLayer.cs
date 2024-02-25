@@ -6,12 +6,12 @@ public abstract class BaseRotorLayer
 {
     protected const string FirstRotorJson = @"{
         ""label"": ""I"",
-        ""wiring"": ""GETNDHQZUPBRCOXMKYAMFILSVJ""
+        ""wiring"": ""GETNDHQZUPBRCOXMKYAWFILSVJ""
     }";    
     
     protected const string SecondRotorJson = @"{
-        ""label"": ""I"",
-        ""wiring"": ""GETNDHQZUPBRCOXMKYAMFILSVJ""
+        ""label"": ""II"",
+        ""wiring"": ""GETNDHQZUPBRCOXMKYAWFILSVJ""
     }";
 
     /*

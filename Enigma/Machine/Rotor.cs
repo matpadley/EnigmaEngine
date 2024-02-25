@@ -7,6 +7,7 @@ public class Rotor
     RotorModel? _rotorModel;
     readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
     char[]? _rotorWiring;
+    private int _rotationCount = 0;
     
     public Rotor(RotorModel? rotorModel, int startPosition)
     {
@@ -19,30 +20,31 @@ public class Rotor
         _rotorWiring = rotorWiring;
     }
 
-    private char[]? ShiftLeft(char[]? rotorWiring, int shift)
+    private char[]? ShiftLeft(char[]? rotorWiring, int shift, bool shouldRotate = false)
     {
         char[]? shiftedAlphabet = new char[_alphabet.Length];
         
-        for (int i = 0; i < _alphabet.Length; i++)
+        for (var i = 0; i < _alphabet.Length; i++)
         {
             var newIndex = (i + shift) % _alphabet.Length;
-            if (rotorWiring != null) shiftedAlphabet[newIndex] = rotorWiring[i];
+            shiftedAlphabet[newIndex] = rotorWiring[i];
         }
+
+        _rotationCount++;
         
-        //return shiftedAlphabet;
         return shiftedAlphabet;
     }
-    
-    public char NextPosition(char letterToEncrypt)
+
+    public char NextPosition(char letterToEncrypt, bool shouldRotate = false)
     {
-        var shifted = ShiftLeft(_rotorWiring, 1);
-        
         var index = Array.IndexOf(_alphabet, letterToEncrypt);
-        
+
         var encryptedChar = _rotorWiring![index];
-        
-        _rotorWiring = ShiftLeft(_rotorWiring, 1);
-        
+
+        _rotorWiring = ShiftLeft(_rotorWiring, 1, shouldRotate);
+
         return encryptedChar;
     }
+    
+    public bool ShouldRotateNext => _rotationCount == _rotorWiring.Length;
 }
