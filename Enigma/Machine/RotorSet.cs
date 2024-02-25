@@ -11,24 +11,14 @@ public class RotorSet
 
     public char Process(char input)
     {
-        var result = input;
+        var outputChar = input;
         
-        for(var i = 0; i < Rotors.Length; i++)
+        foreach (var rotor in Rotors)
         {
-            if (i == 0)
-            {
-                result = Rotors[i].AdvancePosition(input);
-            }
-            else if (Rotors[Rotors.Length-1].CurrentIndex <= 24)
-            {
-                result = Rotors[Rotors.Length-1].CurrentPosition;
-            }
-            else
-            {
-                result = Rotors[Rotors.Length-1].AdvancePosition(input);
-            }
+            outputChar = rotor.NextPosition(outputChar);
         }
-
-        return result;
+        
+        return outputChar;
+        
     }
 }
