@@ -1,6 +1,6 @@
 using Enigma.Data;
 
-namespace enigma.tests;
+namespace TestProject1;
 
 public abstract class BaseRotorLayer
 {
@@ -22,5 +22,5 @@ public abstract class BaseRotorLayer
     }";
     */
     
-    protected RotorModel RotorModel = new();
+    protected RotorModel? RotorModel = new();
 }

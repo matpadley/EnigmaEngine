@@ -1,6 +1,6 @@
 using Enigma.PlugBoard;
 
-namespace enigma.tests.Plugboard;
+namespace TestProject1.Plugboard;
 
 [TestFixture]
 public class PlugBoardTests

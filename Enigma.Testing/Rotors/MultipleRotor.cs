@@ -3,7 +3,7 @@ using Enigma.Machine;
 using FluentAssertions;
 using Newtonsoft.Json;
 
-namespace enigma.tests.Rotors;
+namespace TestProject1.Rotors;
 
 public class MultipleRotor: BaseRotorLayer
 {
@@ -36,7 +36,7 @@ public class MultipleRotor: BaseRotorLayer
     }
     
     
-    //[TestCase(0, 0,'H', 'J')]
+    [TestCase(0, 0,'H', 'J')]
     //[TestCase(0,0, 'Z', 'P')]
     //[TestCase(1,0, 'Z', 'P')]
     //[TestCase(0,0, 'B', 'E')]

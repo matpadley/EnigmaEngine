@@ -1,10 +1,9 @@
-using System.Runtime.InteropServices.JavaScript;
 using Enigma.Data;
 using Enigma.Machine;
 using FluentAssertions;
 using Newtonsoft.Json;
 
-namespace enigma.tests.Rotors;
+namespace TestProject1.Rotors;
 
 public class SingleRotorTests: BaseRotorLayer
 {

@@ -1,27 +1,32 @@
-using System.Runtime.InteropServices.JavaScript;
 using Enigma.Data;
 
 namespace Enigma.Machine;
 
 public class Rotor
 {
-    RotorModel rotorModel;
-    char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-    char[] rotorWiring;
+    RotorModel? _rotorModel;
+    readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+    char[]? _rotorWiring;
     
-    public Rotor(RotorModel rotorModel, int startPosition)
+    public Rotor(RotorModel? rotorModel, int startPosition)
     {
-        this.rotorModel = rotorModel;
-        this.rotorWiring = ShiftLeft(rotorModel.Wiring.ToCharArray(), startPosition);
+        this._rotorModel = rotorModel;
+        this._rotorWiring = ShiftLeft(rotorModel?.Wiring?.ToCharArray(), startPosition);
     }
-    private char[] ShiftLeft(char[] rotorWiring, int shift)
+
+    public Rotor(char[]? rotorWiring)
     {
-        char[] shiftedAlphabet = new char[alphabet.Length];
+        _rotorWiring = rotorWiring;
+    }
+
+    private char[]? ShiftLeft(char[]? rotorWiring, int shift)
+    {
+        char[]? shiftedAlphabet = new char[_alphabet.Length];
         
-        for (int i = 0; i < alphabet.Length; i++)
+        for (int i = 0; i < _alphabet.Length; i++)
         {
-            int newIndex = (i + shift) % alphabet.Length;
-            shiftedAlphabet[newIndex] = rotorWiring[i];
+            var newIndex = (i + shift) % _alphabet.Length;
+            if (rotorWiring != null) shiftedAlphabet[newIndex] = rotorWiring[i];
         }
         
         //return shiftedAlphabet;
@@ -30,13 +35,13 @@ public class Rotor
     
     public char NextPosition(char letterToEncrypt)
     {
-        var shifted = ShiftLeft(rotorWiring, 1);
+        var shifted = ShiftLeft(_rotorWiring, 1);
         
-        var index = Array.IndexOf(alphabet, letterToEncrypt);
+        var index = Array.IndexOf(_alphabet, letterToEncrypt);
         
-        var encryptedChar = rotorWiring[index];
+        var encryptedChar = _rotorWiring![index];
         
-        rotorWiring = ShiftLeft(rotorWiring, 1);
+        _rotorWiring = ShiftLeft(_rotorWiring, 1);
         
         return encryptedChar;
     }

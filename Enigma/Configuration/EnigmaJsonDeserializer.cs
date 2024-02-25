@@ -8,7 +8,7 @@ public class EnigmaJsonDeserializer(IConfiguration configuration)
 {
     private IConfiguration Configuration { get; } = configuration;
 
-    public EnigmaDataModel? DeserializeEnigmaData()
+    public EnigmaDataModel DeserializeEnigmaData()
     {
         var filePath = Configuration.GetSection("fileLocations")
             .GetChildren()

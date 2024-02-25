@@ -7,7 +7,7 @@
 
         <IsPackable>false</IsPackable>
         <IsTestProject>true</IsTestProject>
-        <RootNamespace>enigma.tests</RootNamespace>
+        <RootNamespace>TestProject1</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -20,12 +20,27 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Using Include="NUnit.Framework"/>
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\Enigma\Enigma.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Data\enigmas.json" />
-      <None Remove="Data\refelctors.json" />
+      <ProjectReference Include="..\Enigma\Enigma.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="EnigmaMachines\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="EnigmaMachines\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="EnigmaMachines\**" />
     </ItemGroup>
 
 </Project>
