@@ -39,6 +39,7 @@ public class SingleRotorTests: BaseRotorLayer
     [TestCase(0, "HA", "ZJ", false)]
     [TestCase(0, "HAC", "ZJG", false)]
     [TestCase(0, "HACK", "ZJGZ", false)]
+    [TestCase(0, "HHHH", "ZQHD", false)]
     public void AdvancePosition_ReturnsExpectedWord(int startPosition, 
         string inputWord, 
         string expectedWord,

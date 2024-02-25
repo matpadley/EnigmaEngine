@@ -69,8 +69,8 @@ public class MultipleRotor: BaseRotorLayer
         result.Should().Be(expectedLetter);
     }
     
-    [TestCase(0, 0, "HA", "JQ")]
-    [TestCase(0, 0, "HACK", "JLZWP")]
+    [TestCase(0, 0, "HA", "ZJ")]
+    [TestCase(0, 0, "HACK", "ZJGZ")]
     //[TestCase(1, 1, "HELLO", "QHNNO")]
     //[TestCase(26, 1, "HELLO", "QHNNO")]
     //[TestCase(26, 1, "ABCDEFGHUJKLMNOPQRSTUVWQYZ", "SLWIHRKQAETNMFOUVPZCAXJVDB")]
