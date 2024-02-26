@@ -2,31 +2,23 @@ using Enigma.Data;
 
 namespace Enigma.Machine;
 
-public class Rotor
+public class Rotor: RotorBase
 {
-    RotorModel? _rotorModel;
-    readonly char[] _alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-    char[]? _rotorWiring;
     private int _rotationCount = 0;
     
     public Rotor(RotorModel? rotorModel, int startPosition)
     {
-        this._rotorModel = rotorModel;
-        this._rotorWiring = ShiftLeft(rotorModel?.Wiring?.ToCharArray(), startPosition);
-    }
-
-    public Rotor(char[]? rotorWiring)
-    {
-        _rotorWiring = rotorWiring;
+        //_rotorModel = rotorModel;
+        RotorWiring = ShiftLeft(rotorModel?.Wiring?.ToCharArray(), startPosition);
     }
 
     private char[]? ShiftLeft(char[]? rotorWiring, int shift, bool shouldRotate = false)
     {
-        char[]? shiftedAlphabet = new char[_alphabet.Length];
+        var shiftedAlphabet = new char[Alphabet.Length];
         
-        for (var i = 0; i < _alphabet.Length; i++)
+        for (var i = 0; i < Alphabet.Length; i++)
         {
-            var newIndex = (i + shift) % _alphabet.Length;
+            var newIndex = (i + shift) % Alphabet.Length;
             shiftedAlphabet[newIndex] = rotorWiring[i];
         }
         
@@ -35,19 +27,17 @@ public class Rotor
 
     public char NextPosition(char letterToEncrypt, bool shouldRotate = false)
     {
-        var index = Array.IndexOf(_alphabet, letterToEncrypt);
+        var index = Array.IndexOf(Alphabet, letterToEncrypt);
 
-        var encryptedChar = _rotorWiring![index];
+        var encryptedChar = RotorWiring![index];
 
         if (shouldRotate)
         {
-            _rotorWiring = ShiftLeft(_rotorWiring, 1, shouldRotate);
+            RotorWiring = ShiftLeft(RotorWiring, 1, shouldRotate);
         }
 
         _rotationCount++;
 
         return encryptedChar;
     }
-    
-    public bool ShouldRotateNext => _rotationCount == _rotorWiring.Length;
 }

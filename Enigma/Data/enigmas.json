@@ -124,15 +124,15 @@
   ],
   "reflectors": [
     {
-      "name": "Reflector A",
+      "label": "Reflector A",
       "wiring": "EJMZALYXVBWFCRQUONTSPIKHGD"
     },
     {
-      "name": "Reflector B",
+      "label": "Reflector B",
       "wiring": "YRUHQSLDPXNGOKMIEBFZCWVJAT"
     },
     {
-      "name": "Reflector C",
+      "label": "Reflector C",
       "wiring": "FVPJIAOYEDRZXWGCTKUQSBNMHL"
     }
   ]

@@ -1,13 +1,8 @@
 namespace Enigma.Machine;
 
-public class RotorSet
+public class RotorSet(Rotor[] rotors)
 {
-    public RotorSet(Rotor[] rotors)
-    {
-        Rotors = rotors;
-    }
-
-    private Rotor[] Rotors { get; set; }
+    private Rotor[] Rotors { get; set; } = rotors;
 
     public char Process(char input)
     {
