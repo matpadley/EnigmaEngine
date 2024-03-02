@@ -2,14 +2,10 @@ using Enigma.Data;
 
 namespace Enigma.Machine;
 
-public class Reflector(RotorModel rotorModel) : RotorBase
+public class Reflector(RotorModel rotorModel) : RotorBase(rotorModel.Wiring)
 {
-    char[] _reflectorWiring = rotorModel.Wiring.ToCharArray();
-
     public char Process(char inputLetter)
     {
-        var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-        var position = Array.IndexOf(alphabet, inputLetter);
-        return _reflectorWiring[position];
+        return RotorWiring[Position(inputLetter)];
     }
 }

@@ -6,10 +6,9 @@ public class Rotor: RotorBase
 {
     private int _rotationCount = 0;
     
-    public Rotor(RotorModel? rotorModel, int startPosition)
+    public Rotor(RotorModel? rotorModel, int startPosition): base(rotorModel.Wiring)
     {
-        //_rotorModel = rotorModel;
-        RotorWiring = ShiftLeft(rotorModel?.Wiring?.ToCharArray(), startPosition);
+        RotorWiring = ShiftLeft(RotorWiring, startPosition);
     }
 
     private char[]? ShiftLeft(char[]? rotorWiring, int shift, bool shouldRotate = false)
@@ -27,7 +26,7 @@ public class Rotor: RotorBase
 
     public char NextPosition(char letterToEncrypt, bool shouldRotate = false)
     {
-        var index = Array.IndexOf(Alphabet, letterToEncrypt);
+        var index = Position(letterToEncrypt);
 
         var encryptedChar = RotorWiring![index];
 
